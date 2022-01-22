@@ -1,0 +1,15 @@
+Detekcja anomalii z użyciem metody detekcji nowości ("novelty detection"), czyli uczenie pod nadzorem na danych zawierających wyłącznie przypadki standardowe
+
+W tutorialu wykorzystano ?las izolujący? ("isolation forest") - zespół drzew decyzyjnych (zastosowano implementację lasu z scicit-learn, przy inicjalizacji podając wartości: liczby estymatorów, proporcji outlierów w danych, seed generatora liczb losowych)
+
+Algorytm detekcji anomalii ogranicza się do dwóch zasadniczych punktów:
+1. Preprocessing obrazów zbioru uczącego w postaci ekstrakcji ich cech charakterystycznych. Jako cechę przyjęto znormalizowany histogram w przestrzeni HSV (normalizacja celem uniezależnienia wyników od rozmiaru obrazu).
+2. Inicjalizacja i uczenie lasu na otrzymanych wyekstraktowanych cechach (model zostaje zapisany).
+
+Dane wykorzystane w tutorialu (do prezentacji można wkleić screeny z tutoriala):
+1. Uczące: 16 obrazów przedstawiających las ze zbioru 8Scenes (link: https://people.csail.mit.edu/torralba/code/spatialenvelope/)
+2. Testowe: 3 obrazy w tym 1 przedstawiający las i 2 reprezentujące anomalie (droga i plaża)
+
+Testy autora:
+!Konieczny preprocessing obrazów testowych przed predykcją - ekstrakcja histogramów!
+Wynik 100% poprawności detekcji (podany przez autora potwierdzony testem na własnym sprzęcie)
